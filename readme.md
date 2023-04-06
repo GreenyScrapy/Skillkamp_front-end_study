@@ -1,0 +1,1 @@
+This project is created for the purpose of studying real front-end development project
