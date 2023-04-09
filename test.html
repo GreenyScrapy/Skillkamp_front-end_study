@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+    <div>
+        <h1>Hello World</h1>
+    </div>
+    <div class="card text-center" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">I'm a product</h5>
+            <span>&#8213;</span>
+            <p class="card-text">Price</p>
+            <a href="#" class="btn btn-light btn-lg border rounded-0 border-dark px-5">Add to cart</a>
+        </div>
+    </div>
+
+    <div class="myProduct">
+        <div class="card text-center" style="width: 18rem;">
+            <!-- Image -->
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <!-- Card -->
+            <div class="card-body">
+                <h5 class="card-title">I'm a product</h5>
+                <span>&#8213;</span>
+                <!-- Price -->
+                <p class="card-text">Price</p>
+                <a href="#" class="btn btn-light btn-lg border rounded-0 border-dark px-5">Add to cart</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- For Products -->
+    <script>
+        
+    </script>
+    <!-- For Products -->
+
+    <!-- For carousel -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.bundle.js">
+        fetch('https://skillkamp-api.com/v1/api/images/landing')
+        .then(response => response.json())
+        .then(data => {
+            const imageUrls = data.detail;
+            imageUrls.forEach((url, index) => {
+              addSlide(url, index);
+            });
+            console.log(data);
+          });
+      
+        function addSlide(url, index) {
+          const slideList = document.querySelector('.carousel-inner');
+          const slide = document.createElement('div');
+          slide.classList.add('carousel-item');
+          if (index === 0) {
+            slide.classList.add('active');
+          }
+          const img = document.createElement('img');
+          img.src = url;
+          img.alt = `Image ${index+1}`;
+          slide.appendChild(img);
+          slideList.appendChild(slide);
+        }
+    </script>
+    <!-- For carousel -->
+</body>
+</html>

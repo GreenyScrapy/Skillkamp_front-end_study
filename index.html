@@ -40,17 +40,17 @@
 
     <!-- The main parts go here -->
     <div class="my-5">
-        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel1" class="carousel slide" role="listbox" data-ride="carousel">
             <!-- Indicator -->
             <ol class="carousel-indicators"></ol>
             <!-- Wrapper -->
-            <div class="carousel-inner" role="listbox"></div>
+            <div class="carousel-inner"></div>
             <!-- Control -->
             <a class="carousel-control-prev" href="#myCarousel1" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-                <a class="carousel-control-next" href="#myCarousel1" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#myCarousel1" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -100,15 +100,12 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <script>
-        $(document).ready(function() {
-            $('.carousel').carousel({
-                interval: 3000 // 3 seconds
-            });
-        });
         fetch('https://skillkamp-api.com/v1/api/images/landing')
           .then(response => response.json())
           .then(data => {
@@ -122,11 +119,12 @@
         function addSlide(url, index) {
           const slideList = document.querySelector('.carousel-inner');
           const slide = document.createElement('div');
-          slide.classList.add('item');
+          slide.classList.add('carousel-item');
           if (index === 0) {
             slide.classList.add('active');
           }
           const img = document.createElement('img');
+          img.classList.add('img-fluid');
           img.src = url;
           img.alt = `Image ${index+1}`;
           slide.appendChild(img);
