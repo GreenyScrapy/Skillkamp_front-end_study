@@ -12,17 +12,35 @@
         <h1>Hello World</h1>
     </div>
 
-    <div id="myCarousel2" class="carousel slide" role="listbox" data-ride="carousel">
-        <!-- Indicator -->
+    <!-- <div id="myCarousel2" class="carousel slide" role="listbox" data-ride="carousel">
+        
         <ol class="carousel-indicators"></ol>
-        <!-- Wrapper -->
-        <div class="carousel-inner"></div>
-        <!-- Control -->
-        <a class="carousel-control-prev" href="#myCarousel1" role="button" data-slide="prev">
+        
+        <div class="carousel-inner">
+            
+        </div>
+        
+        <a class="carousel-control-prev" href="#myCarousel2" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#myCarousel1" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#myCarousel2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div> -->
+
+    <div id="myProduct2" class="carousel slide w-25">
+        <!-- wrapper -->
+        <div class="carousel-inner">
+
+        </div>
+        <!-- Controll -->
+        <a class="carousel-control-prev" href="#myProduct2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myProduct2" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
@@ -30,45 +48,49 @@
 
     <!-- For Products (Start) -->
 
-    <div class="myProduct">
+    <!-- <div class="myProduct">
         <div class="row">
         </div>
-    </div>
+    </div> -->
 
     <script>
-        async function fetchProduct(){
+        async function fetchProduct2(){
             let response = await fetch('https://skillkamp-api.com/v1/api/products/new_arrivals');
             let data = await response.json();
             const product = data.detail.data.catalog.category.productsWithMetaData.list;
-            const productList = document.querySelector('.myProduct');
-            const productRow = document.createElement('div');
-            productRow.classList.add('row');
-            product.forEach(index => {
-                let price = index.price;
-                index.media.forEach(index => {
-                    addProduct(index.title,price);
+            product.forEach((val,index) => {
+                console.log(index);
+                let productIndex = index;
+                let price = val.price;
+                val.media.forEach(index => {
+                    let url = index.title;
+                    addProduct(url,price,productIndex);
                 });
-                console.log(index.media);
+                
             });
-            console.log(data);
-            console.log(product);
-            console.log(product[0].media);
+            
         }
-        function addProduct(url,price){
-            const productRow = document.querySelector('.row');
+        function addProduct(url,price,index){
+            
+            const productRow = document.createElement('div');
+            const slideList = document.querySelector('.carousel-inner');
+            const slide = document.createElement('div');
             const productCard = document.createElement('div');
             const productCard_body = document.createElement('div');
             const productCard_title = document.createElement('h5');
             const productCard_line = document.createElement('span');
             const productCard_price = document.createElement('p');
             const productCard_button = document.createElement('a');
-            console.log(productCard_title.classList);
+            
             // Add class to the created elements
+            productRow.classList.add('card-deck');
+            slide.classList.add('carousel-item');
+            console.log(index);
+            if (index === 0) {
+                    slide.classList.add('active');
+            }
             productCard.classList.add('card');
             productCard.classList.add('text-center');
-            productCard.classList.add('col-lg-3');
-            productCard.classList.add('col-md-4');
-            productCard.classList.add('col-sm-6');
             const img = document.createElement('img');
             img.src = url;
             productCard_body.classList.add('card-body');
@@ -93,8 +115,74 @@
             productCard.appendChild(img);
             productCard.appendChild(productCard_body);
             productRow.appendChild(productCard);
+            slide.appendChild(productRow);
+            slideList.appendChild(slide);
         }
-        fetchProduct();
+        fetchProduct2();
+    </script>
+    <!-- For Products (End) -->
+
+        <!-- For Products (Start) -->
+
+    <!-- <div class="myProduct">
+        <div class="row">
+        </div>
+    </div> -->
+
+    <script>
+        // async function fetchProduct(){
+        //     let response = await fetch('https://skillkamp-api.com/v1/api/products/new_arrivals');
+        //     let data = await response.json();
+        //     const product = data.detail.data.catalog.category.productsWithMetaData.list;
+        //     const productList = document.querySelector('.myProduct');
+        //     const productRow = document.createElement('div');
+        //     productRow.classList.add('row');
+        //     product.forEach(index => {
+        //         let price = index.price;
+        //         index.media.forEach(index => {
+        //             addProduct(index.title,price);
+        //         });
+        //     });
+        // }
+        // function addProduct(url,price){
+        //     const productRow = document.querySelector('.row');
+        //     const productCard = document.createElement('div');
+        //     const productCard_body = document.createElement('div');
+        //     const productCard_title = document.createElement('h5');
+        //     const productCard_line = document.createElement('span');
+        //     const productCard_price = document.createElement('p');
+        //     const productCard_button = document.createElement('a');
+        //     // Add class to the created elements
+        //     productCard.classList.add('card');
+        //     productCard.classList.add('text-center');
+        //     productCard.classList.add('col-lg-3');
+        //     productCard.classList.add('col-md-4');
+        //     productCard.classList.add('col-sm-6');
+        //     const img = document.createElement('img');
+        //     img.src = url;
+        //     productCard_body.classList.add('card-body');
+        //     productCard_title.classList.add('card-title');
+        //     productCard_button.classList.add('btn');
+        //     productCard_button.classList.add('btn-light');
+        //     productCard_button.classList.add('btn-lg');
+        //     productCard_button.classList.add('border');
+        //     productCard_button.classList.add('rounded-0');
+        //     productCard_button.classList.add('border-dark');
+        //     productCard_button.classList.add('px-5');
+        //     // add inner HTML
+        //     productCard_title.innerHTML = "I'm a product";
+        //     productCard_line.innerHTML='&#8213;';
+        //     productCard_price.innerHTML=price;
+        //     productCard_button.innerHTML='Add to Cart';
+        //     // Append everything
+        //     productCard_body.appendChild(productCard_title);
+        //     productCard_body.appendChild(productCard_line);
+        //     productCard_body.appendChild(productCard_price);
+        //     productCard_body.appendChild(productCard_button);
+        //     productCard.appendChild(img);
+        //     productCard.appendChild(productCard_body);
+        //     productRow.appendChild(productCard);
+        // }
     </script>
     <!-- For Products (End) -->
 
@@ -105,7 +193,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="js/bootstrap.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/js/bootstrap.bundle.js">
+    <script src="/js/bootstrap.bundle.js"></script>
+    <!-- <script>
         fetch('https://skillkamp-api.com/v1/api/images/landing')
         .then(response => response.json())
         .then(data => {
@@ -129,7 +218,8 @@
           slide.appendChild(img);
           slideList.appendChild(slide);
         }
-    </script>
+    </script> -->
+    
     <!-- For carousel -->
 </body>
 </html>
