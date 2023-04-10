@@ -125,6 +125,8 @@
           }
           const img = document.createElement('img');
           img.classList.add('img-fluid');
+          img.classList.add('d-block');
+          img.classList.add('w-100');
           img.src = url;
           img.alt = `Image ${index+1}`;
           slide.appendChild(img);
