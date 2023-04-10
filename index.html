@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="my-5">
-        <h1 class="text-center my-5" style="letter-spacing: 0.3em;">happy kids</h1>
+        <h1 class="text-center my-5 font-weight-bold" style="letter-spacing: 0.3em;">happy kids</h1>
         <div class="my-5 row flex-nowrap">
             <div class="col">
                 <div class="nav justify-content-center">
@@ -35,25 +35,34 @@
             </div>
         </div>
     </div>
-        
-    </div>
 
     <!-- The main parts go here -->
-    <div class="my-5">
-        <div id="myCarousel1" class="carousel slide" role="listbox" data-ride="carousel">
-            <!-- Indicator -->
-            <ol class="carousel-indicators"></ol>
-            <!-- Wrapper -->
-            <div class="carousel-inner"></div>
-            <!-- Control -->
-            <a class="carousel-control-prev" href="#myCarousel1" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel1" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+    <div>
+
+        <div class="my-5">
+            <div id="myCarousel1" class="carousel slide" role="listbox" data-ride="carousel">
+                <!-- Indicator -->
+                <ol class="carousel-indicators"></ol>
+                <!-- Wrapper -->
+                <div class="carousel-inner"></div>
+                <!-- Control -->
+                <a class="carousel-control-prev" href="#myCarousel1" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel1" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <h2 class="text-center my-5" style="letter-spacing: 0.3em;">New Arrivals</h2>
+        <div id="myProduct" class="myProduct row">
+            <div id="productRow" class="row">
+            </div>
+        </div>
+        <div class="text-center my-5">
+            <a href="/shop.html" type="button" class="border border-3 border-dark rounded-0 btn btn-dark w-25 w-md-75">Shop All</a>
         </div>
     </div>
 
@@ -113,7 +122,6 @@
             imageUrls.forEach((url, index) => {
               addSlide(url, index);
             });
-            console.log(data);
           });
       
         function addSlide(url, index) {
@@ -133,6 +141,64 @@
           slideList.appendChild(slide);
         }
       </script>
+      <script>
+        async function fetchProduct(){
+            let response = await fetch('https://skillkamp-api.com/v1/api/products/new_arrivals');
+            let data = await response.json();
+            const product = data.detail.data.catalog.category.productsWithMetaData.list;
+            const productList = document.querySelector('#myProduct');
+            const productRow = document.createElement('div');
+            productRow.classList.add('row');
+            product.forEach((val,pIndex) => {
+                console.log(pIndex);
+                if (pIndex <= 2) {
+                    let price = val.price;
+                    val.media.forEach(index => {
+                        addProduct(index.title,price);
+                    });
+                }
+            });
+        }
+        function addProduct(url,price){
+            const productRow = document.querySelector('#productRow');
+            const productCard = document.createElement('div');
+            const productCard_body = document.createElement('div');
+            const productCard_title = document.createElement('h5');
+            const productCard_line = document.createElement('span');
+            const productCard_price = document.createElement('p');
+            const productCard_button = document.createElement('a');
+            // Add class to the created elements
+            productCard.classList.add('card');
+            productCard.classList.add('text-center');
+            productCard.classList.add('col-md-4');
+            productCard.classList.add('col-sm-6');
+            const img = document.createElement('img');
+            img.src = url;
+            productCard_body.classList.add('card-body');
+            productCard_title.classList.add('card-title');
+            productCard_button.classList.add('btn');
+            productCard_button.classList.add('btn-light');
+            productCard_button.classList.add('btn-lg');
+            productCard_button.classList.add('border');
+            productCard_button.classList.add('rounded-0');
+            productCard_button.classList.add('border-dark');
+            productCard_button.classList.add('px-5');
+            // add inner HTML
+            productCard_title.innerHTML = "I'm a product";
+            productCard_line.innerHTML='&#8213;';
+            productCard_price.innerHTML=price;
+            productCard_button.innerHTML='Add to Cart';
+            // Append everything
+            productCard_body.appendChild(productCard_title);
+            productCard_body.appendChild(productCard_line);
+            productCard_body.appendChild(productCard_price);
+            productCard_body.appendChild(productCard_button);
+            productCard.appendChild(img);
+            productCard.appendChild(productCard_body);
+            productRow.appendChild(productCard);
+        }
+        fetchProduct();
+    </script>
     <style>
         .nav-link {
           color: black;
