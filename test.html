@@ -11,36 +11,94 @@
     <div>
         <h1>Hello World</h1>
     </div>
-    <div class="card text-center" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">I'm a product</h5>
-            <span>&#8213;</span>
-            <p class="card-text">Price</p>
-            <a href="#" class="btn btn-light btn-lg border rounded-0 border-dark px-5">Add to cart</a>
-        </div>
+
+    <div id="myCarousel2" class="carousel slide" role="listbox" data-ride="carousel">
+        <!-- Indicator -->
+        <ol class="carousel-indicators"></ol>
+        <!-- Wrapper -->
+        <div class="carousel-inner"></div>
+        <!-- Control -->
+        <a class="carousel-control-prev" href="#myCarousel1" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel1" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
+
+    <!-- For Products (Start) -->
 
     <div class="myProduct">
-        <div class="card text-center" style="width: 18rem;">
-            <!-- Image -->
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <!-- Card -->
-            <div class="card-body">
-                <h5 class="card-title">I'm a product</h5>
-                <span>&#8213;</span>
-                <!-- Price -->
-                <p class="card-text">Price</p>
-                <a href="#" class="btn btn-light btn-lg border rounded-0 border-dark px-5">Add to cart</a>
-            </div>
+        <div class="row">
         </div>
     </div>
 
-    <!-- For Products -->
     <script>
-        
+        async function fetchProduct(){
+            let response = await fetch('https://skillkamp-api.com/v1/api/products/new_arrivals');
+            let data = await response.json();
+            const product = data.detail.data.catalog.category.productsWithMetaData.list;
+            const productList = document.querySelector('.myProduct');
+            const productRow = document.createElement('div');
+            productRow.classList.add('row');
+            product.forEach(index => {
+                let price = index.price;
+                index.media.forEach(index => {
+                    addProduct(index.title,price);
+                });
+                console.log(index.media);
+            });
+            console.log(data);
+            console.log(product);
+            console.log(product[0].media);
+        }
+        function addProduct(url,price){
+            const productRow = document.querySelector('.row');
+            const productCard = document.createElement('div');
+            const productCard_body = document.createElement('div');
+            const productCard_title = document.createElement('h5');
+            const productCard_line = document.createElement('span');
+            const productCard_price = document.createElement('p');
+            const productCard_button = document.createElement('a');
+            console.log(productCard_title.classList);
+            // Add class to the created elements
+            productCard.classList.add('card');
+            productCard.classList.add('text-center');
+            productCard.classList.add('col-lg-3');
+            productCard.classList.add('col-md-4');
+            productCard.classList.add('col-sm-6');
+            const img = document.createElement('img');
+            img.src = url;
+            productCard_body.classList.add('card-body');
+            productCard_title.classList.add('card-title');
+            productCard_button.classList.add('btn');
+            productCard_button.classList.add('btn-light');
+            productCard_button.classList.add('btn-lg');
+            productCard_button.classList.add('border');
+            productCard_button.classList.add('rounded-0');
+            productCard_button.classList.add('border-dark');
+            productCard_button.classList.add('px-5');
+            // add inner HTML
+            productCard_title.innerHTML = "I'm a product";
+            productCard_line.innerHTML='&#8213;';
+            productCard_price.innerHTML=price;
+            productCard_button.innerHTML='Add to Cart';
+            // Append everything
+            productCard_body.appendChild(productCard_title);
+            productCard_body.appendChild(productCard_line);
+            productCard_body.appendChild(productCard_price);
+            productCard_body.appendChild(productCard_button);
+            productCard.appendChild(img);
+            productCard.appendChild(productCard_body);
+            productRow.appendChild(productCard);
+        }
+        fetchProduct();
     </script>
-    <!-- For Products -->
+    <!-- For Products (End) -->
+
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
 
     <!-- For carousel -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

@@ -35,8 +35,13 @@
         </div>
     </div>
         
+<!-- Product List -->
+    
+    <div class="myProduct">
+        <div class="row">
+        </div>
     </div>
-
+    
     <div class="col my-5" style="padding: 0 30% 0 30%;">
         <div class="row">
             <h3 class="text-center" style="letter-spacing: 0.3em;">happy kids</h3>
@@ -80,6 +85,68 @@
             </div>
         </div>
     </div>
+    <!-- Product Script -->
+    <script>
+        async function fetchProduct(){
+            let response = await fetch('https://skillkamp-api.com/v1/api/products/new_arrivals');
+            let data = await response.json();
+            const product = data.detail.data.catalog.category.productsWithMetaData.list;
+            const productList = document.querySelector('.myProduct');
+            const productRow = document.createElement('div');
+            productRow.classList.add('row');
+            product.forEach(index => {
+                let price = index.price;
+                index.media.forEach(index => {
+                    addProduct(index.title,price);
+                });
+                console.log(index.media);
+            });
+            console.log(data);
+            console.log(product);
+            console.log(product[0].media);
+        }
+        function addProduct(url,price){
+            const productRow = document.querySelector('.row');
+            const productCard = document.createElement('div');
+            const productCard_body = document.createElement('div');
+            const productCard_title = document.createElement('h5');
+            const productCard_line = document.createElement('span');
+            const productCard_price = document.createElement('p');
+            const productCard_button = document.createElement('a');
+            console.log(productCard_title.classList);
+            // Add class to the created elements
+            productCard.classList.add('card');
+            productCard.classList.add('text-center');
+            productCard.classList.add('col-lg-3');
+            productCard.classList.add('col-md-4');
+            productCard.classList.add('col-sm-6');
+            const img = document.createElement('img');
+            img.src = url;
+            productCard_body.classList.add('card-body');
+            productCard_title.classList.add('card-title');
+            productCard_button.classList.add('btn');
+            productCard_button.classList.add('btn-light');
+            productCard_button.classList.add('btn-lg');
+            productCard_button.classList.add('border');
+            productCard_button.classList.add('rounded-0');
+            productCard_button.classList.add('border-dark');
+            productCard_button.classList.add('px-5');
+            // add inner HTML
+            productCard_title.innerHTML = "I'm a product";
+            productCard_line.innerHTML='&#8213;';
+            productCard_price.innerHTML=price;
+            productCard_button.innerHTML='Add to Cart';
+            // Append everything
+            productCard_body.appendChild(productCard_title);
+            productCard_body.appendChild(productCard_line);
+            productCard_body.appendChild(productCard_price);
+            productCard_body.appendChild(productCard_button);
+            productCard.appendChild(img);
+            productCard.appendChild(productCard_body);
+            productRow.appendChild(productCard);
+        }
+        fetchProduct();
+    </script>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="js/bootstrap.js"></script>
