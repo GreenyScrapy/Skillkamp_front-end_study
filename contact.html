@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>happy kids</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-cart.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/user.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
     <div class="my-5">
@@ -20,8 +19,8 @@
                 <div class="nav justify-content-center">
                     <a class="nav-item nav-link" href="/index.html">Home</a>
                     <a class="nav-item nav-link" href="/shop.html">Shop Collection</a>
-                    <a class="nav-item nav-link active" href="#">Our Story</a>
-                    <a class="nav-item nav-link" href="/contact.html">Contact</a>
+                    <a class="nav-item nav-link" href="/our story.html">Our Story</a>
+                    <a class="nav-item nav-link active" href="#">Contact</a>
                     <a class="nav-item nav-link" href="#">
                         
                         <i class="pull-left gg-user"></i>
@@ -36,18 +35,72 @@
         </div>
     </div>
 
-    <!-- Main -->
-    <div id="OurStory">
-
-    </div>
-    <div class="text-center my-5 col-6 mx-auto" style="padding-top: 1.25em;">
-        <h2 class="my-3" style="padding-bottom: 1.25em;">Our Story</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et porta quam, nec ornare sapien. Nulla vel ex vitae nulla varius feugiat sed id augue. Cras molestie, lorem in scelerisque faucibus, ligula dui ultrices neque, ac sodales tellus libero nec magna. In tellus diam, tristique vitae quam quis, consequat tincidunt sapien. Fusce accumsan dui dui, in dictum sapien ullamcorper non. Phasellus vulputate lacus placerat neque feugiat ultricies. Vestibulum in egestas massa.
-        </p>
-        <p>
-            Sed id odio metus. Cras lacinia eros ac tortor posuere rhoncus eget eu ex. Maecenas lectus mi, viverra ac vehicula sit amet, tempor in dolor. Praesent varius vitae metus nec tempor. Ut fermentum rutrum sollicitudin. Vivamus pellentesque, odio eget ullamcorper ornare, eros eros euismod leo, vel laoreet urna nibh a mi. Vestibulum iaculis, lacus id mattis euismod, massa risus blandit lacus, ac suscipit magna eros eleifend dolor. Nullam erat ligula, sagittis a condimentum eu, placerat at ex. Fusce hendrerit neque id posuere semper. Nam blandit mauris erat, et varius dolor euismod nec.
-        </p>
+<!-- Main part here -->
+    <div class="container">
+        <div class="row mb-5">
+            <h2 class="text-center my-5">Contact Us</h2>
+        </div>
+        <div class="row text-center">
+            <div class="col">
+                <h4 class="mb-5">VISIT US</h4>
+                <p>500 Terry Francois St.</p>
+                <p>San Francisco, CA 94158</p>
+                <p>123-456-7890</p>
+            </div>
+            <div class="col">
+                <h4 class="mb-5">OPENING HOURS</h4>
+                <p>Mon - Fri: 7am - 10pm</p>
+                <p>​​Saturday: 8am - 10pm</p>
+                <p>​Sunday: 8am - 11pm</p>
+            </div>
+            <div class="col">
+                <h4 class="mb-5">CUSTOMER SERVICE</h4>
+                <p>1-800-000-000</p>
+                <p>123-456-7890</p>
+                <a>info@mysite.com</a>
+            </div>
+        </div>
+        <h4 class="text-center" style="margin-top: 4em;">FOR ANY QUESTIONS, PLEASE SEND US A MESSAGE</h4>
+        <div class="row my-5">
+            <form class="need-validation" novalidate>
+                <div class="row form-row">
+                    <div class="col-6">
+                      <label for="validationCustom01">First name</label>
+                      <input type="text" class="form-control" id="validationCustom01" required>
+                    </div>
+                    <div class="col-6">
+                      <label for="validationCustom02">Last name</label>
+                      <input type="text" class="form-control" id="validationCustom02" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="validationEmail">Email*</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="validationEmail" aria-describedby="inputGroupPrepend2" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="subject">Subject</label>
+                    <div>
+                        <input type="text" class="form-control" id="subject">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="messageForm">Message</label>
+                    <div>
+                        <textarea class="form-control" id="messageForm" rows="4"></textarea>
+                    </div>
+                  </div>
+                <div class="row text-center">
+                    <div>
+                        <button class="btn btn-dark" type="submit">Submit form</button>
+                    </div>
+                </div> 
+            </form>
+        </div>
+        <div id="map-container-google-1" class="z-depth-1-half map-container w-100 mb-5" style="height: 500px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d788.4567976542567!2d-122.38730099999998!3d37.77065!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1681139804037!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
 
     <div class="row justify-content-center py-5 border-top border-1 border-dark">
@@ -60,8 +113,8 @@
                     <ul class="nav-vertical">
                         <a class="nav-item nav-link" href="/index.html">Home</a>
                         <a class="nav-item nav-link" href="/shop.html">Shop Collection</a>
-                        <a class="nav-item nav-link active" href="#">Our Story</a>
-                        <a class="nav-item nav-link" href="/contact.html">Contact</a>
+                        <a class="nav-item nav-link" href="/our story.html">Our Story</a>
+                        <a class="nav-item nav-link active" href="#">Contact</a>
                     </ul>
                 </div>
                 <div class="col-4 text-center">
@@ -99,29 +152,30 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
-    <script>
-        async function fetchImg(){
-            let response = await fetch('https://skillkamp-api.com/v1/api/images/story');
-            let data = await response.json();
-            const pic = document.querySelector('#OurStory');
-            const img = document.createElement('img');
-            img.src = data.detail;
-            img.classList.add('w-100');
-            img.classList.add('img-fluid');
-            img.style.objectFit='cover';
-            img.style.maxHeight= '600px';
-            pic.appendChild(img);
-        }
-        fetchImg();
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
     <style>
         .nav-link {
           color: black;
           text-decoration: none;
+        }
+        .btn-link{
+            color: black;
+            text-decoration: none;
+        }
+        .map-container{
+            overflow:hidden;
+            padding-bottom:56.25%;
+            position:relative;
+            height:0;
+        }
+        .map-container iframe{
+            left:0;
+            top:0;
+            height:100%;
+            width:100%;
+            position:absolute;
         }
       </style>
 </body>
