@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <div class="my-5">
+    <div class="my-5 row">
         <h1 class="text-center my-5" style="letter-spacing: 0.3em;">happy kids</h1>
         <div class="my-5 row flex-nowrap">
             <div class="col">
@@ -37,12 +37,12 @@
         
 <!-- Product List -->
     
-    <div class="myProduct">
+    <div class="myProduct row">
         <div class="row">
         </div>
     </div>
     
-    <div class="col my-5" style="padding: 0 30% 0 30%;">
+    <div class="col my-5 row" style="padding: 0 30% 0 30%;">
         <div class="row">
             <h3 class="text-center" style="letter-spacing: 0.3em;">happy kids</h3>
         </div>
@@ -88,7 +88,7 @@
     <!-- Product Script -->
     <script>
         async function fetchProduct(){
-            let response = await fetch('https://skillkamp-api.com/v1/api/products/new_arrivals');
+            let response = await fetch('https://skillkamp-api.com/v1/api/products/');
             let data = await response.json();
             const product = data.detail.data.catalog.category.productsWithMetaData.list;
             const productList = document.querySelector('.myProduct');
