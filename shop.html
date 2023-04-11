@@ -37,61 +37,111 @@
     </div>
         
 <!-- Product List -->
-    
-    <div class="myProduct row">
-        <div class="row">
+<div class="row">
+    <div class="col-2">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav flex-column">
+                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#">Features</a>
+                        <a class="nav-item nav-link" href="#">Pricing</a>
+                        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                    </div>
+                </div>
+            </div>
+          </nav>
+        <div class="nav flex-column">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollection" aria-controls="navbarCollection" aria-expanded="false">
+                        Collection
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollection">
+                        <div class="navbar-nav flex-column">
+                            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link" href="#">Features</a>
+                            <a class="nav-item nav-link" href="#">Pricing</a>
+                            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="" aria-controls="" aria-expanded="false">
+                Price
+            </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="" aria-controls="" aria-expanded="false">
+                Color
+            </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="" aria-controls="" aria-expanded="false">
+                Size
+            </button>
         </div>
     </div>
-    
-    <div class="row justify-content-center py-5 border-top border-1 border-dark">
-        <div class="col-md-6 col-sm-8">
-            <div class="row">
-                <h3 class="text-center" style="letter-spacing: 0.3em;">happy kids</h3>
+    <div class="col-10">
+        <div class="myProduct row">
+            <div class="row" id="ProductRow">
             </div>
-            <div class="row flex-nowrap">
-                <div class="col-4 text-center text-sm-left">
-                    <ul class="nav-vertical">
-                        <a class="nav-item nav-link" href="/index.html">Home</a>
-                        <a class="nav-item nav-link active" href="#">Shop Collection</a>
-                        <a class="nav-item nav-link" href="/our story.html">Our Story</a>
-                        <a class="nav-item nav-link" href="/contact.html">Contact</a>
-                    </ul>
+        </div>
+        
+        <div class="row justify-content-center py-5 border-top border-1 border-dark">
+            <div class="col-md-6 col-sm-8">
+                <div class="row">
+                    <h3 class="text-center" style="letter-spacing: 0.3em;">happy kids</h3>
                 </div>
-                <div class="col-4 text-center">
-                    <a href="#" class="fa fa-facebook" style="text-decoration: none;color: rgb(0.8, 0.8, 0.8);font-size: x-large;padding: 0.5em;"></a>
-                    <a href="#" class="fa fa-pinterest" style="text-decoration: none;color: rgb(0.8, 0.8, 0.8);font-size: x-large;padding: 0.5em;"></a>
-                    <a href="#" class="fa fa-instagram" style="text-decoration: none;color: rgb(0.8, 0.8, 0.8);font-size: x-large;padding: 0.5em;"></a>
-                </div>
-                <div>
-                    <div class="col-4 text-center text-sm-right">
+                <div class="row flex-nowrap">
+                    <div class="col-4 text-center text-sm-left">
                         <ul class="nav-vertical">
-                            <a class="nav-item nav-link" href="#">Shipping & Returns</a>
-                            <a class="nav-item nav-link" href="#">Store Policy</a>
-                            <a class="nav-item nav-link" href="#">Payment Methods</a>
-                            <a class="nav-item nav-link" href="#">FAQ</a>
+                            <a class="nav-item nav-link" href="/index.html">Home</a>
+                            <a class="nav-item nav-link active" href="#">Shop Collection</a>
+                            <a class="nav-item nav-link" href="/our story.html">Our Story</a>
+                            <a class="nav-item nav-link" href="/contact.html">Contact</a>
                         </ul>
                     </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-6 col-sm-8">
-                    <div class="row">
-                        <h5 for="" class="text- text-center mb-3">Join Our Mailing List</h5>
+                    <div class="col-4 text-center">
+                        <a href="#" class="fa fa-facebook" style="text-decoration: none;color: rgb(0.8, 0.8, 0.8);font-size: x-large;padding: 0.5em;"></a>
+                        <a href="#" class="fa fa-pinterest" style="text-decoration: none;color: rgb(0.8, 0.8, 0.8);font-size: x-large;padding: 0.5em;"></a>
+                        <a href="#" class="fa fa-instagram" style="text-decoration: none;color: rgb(0.8, 0.8, 0.8);font-size: x-large;padding: 0.5em;"></a>
                     </div>
-                    <div class="row px-3">
-                        <div class="col-lg-8 col-md-12">
-                            <form class="form">
-                                <input type="email" class="border border-3 rounded-0 border-dark form form-control input-lg" id="" placeholder="Enter you email here*">
-                            </form>
+                    <div>
+                        <div class="col-4 text-center text-sm-right">
+                            <ul class="nav-vertical">
+                                <a class="nav-item nav-link" href="#">Shipping & Returns</a>
+                                <a class="nav-item nav-link" href="#">Store Policy</a>
+                                <a class="nav-item nav-link" href="#">Payment Methods</a>
+                                <a class="nav-item nav-link" href="#">FAQ</a>
+                            </ul>
                         </div>
-                        <div class="col-lg-4 col-md-12 text-center">
-                            <button type="button" class="border border-3 border-dark rounded-0 btn btn-dark input-lg w-100">Subscribe Now</button>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-6 col-sm-8">
+                        <div class="row">
+                            <h5 for="" class="text- text-center mb-3">Join Our Mailing List</h5>
+                        </div>
+                        <div class="row px-3">
+                            <div class="col-lg-8 col-md-12">
+                                <form class="form">
+                                    <input type="email" class="border border-3 rounded-0 border-dark form form-control input-lg" id="" placeholder="Enter you email here*">
+                                </form>
+                            </div>
+                            <div class="col-lg-4 col-md-12 text-center">
+                                <button type="button" class="border border-3 border-dark rounded-0 btn btn-dark input-lg w-100">Subscribe Now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+    
+    
     <!-- Product Script -->
     <script>
         async function fetchProduct(){
@@ -113,7 +163,7 @@
             console.log(product[0].media);
         }
         function addProduct(url,price){
-            const productRow = document.querySelector('.row');
+            const productRow = document.querySelector('#ProductRow');
             const productCard = document.createElement('div');
             const productCard_body = document.createElement('div');
             const productCard_title = document.createElement('h5');
